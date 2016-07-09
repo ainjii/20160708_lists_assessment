@@ -17,7 +17,9 @@ def all_odd(numbers):
         []
     """
 
-    return ['the wrong thing']
+    return [num for num in numbers if num % 2 != 0]
+    # this could be made better by validating input to ensure
+    # everything in numbers is actually a number first
 
 
 def print_indices(items):
@@ -39,7 +41,8 @@ def print_indices(items):
         2 Volvo
     """
 
-    print "Nothing at all"
+    for i in range(len(items)):
+        print i, items[i]
 
 
 def foods_in_common(foods1, foods2):
@@ -69,8 +72,9 @@ def foods_in_common(foods1, foods2):
         []
 
     """
-
-    return ['the wrong thing']
+    dup_set = set(foods1) & set(foods2)
+    dup_list = sorted(list(dup_set))
+    return dup_list
 
 
 def every_other_item(items):
@@ -87,7 +91,7 @@ def every_other_item(items):
        ['you', 'are', 'good', 'at', 'code']
     """
 
-    return ['the wrong thing']
+    return items[::2]
 
 
 def largest_n_items(items, n):
@@ -112,7 +116,14 @@ def largest_n_items(items, n):
         [3, 3]
     """
 
-    return []
+    items.sort()
+    if n > 0:
+        index = n * -1
+    else:
+        index = len(items)
+    return items[index:]
+    # this could be made better by validating input to ensure
+    # everything in items is actually a number first
 
 
 #####################################################################
